@@ -61,15 +61,25 @@ public class Main {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/uuuu");
 
         // todo: print the number of days to and the date of the next occurrence of a constant date defined in SignificantDate (other than leap year). EG: Valentines Day
-        String formattedChristmas = SignificantDate.next(SignificantDate.CHRISTMAS).format(formatter);
-        System.out.println("There are " + SignificantDate.daysTo(SignificantDate.CHRISTMAS) + " days until the next occurrence of Christmas on " + formattedChristmas );
+
+        System.out.printf("There are %s days until the next occurrence of Christmas on %s\n",
+                SignificantDate.daysTo(SignificantDate.CHRISTMAS),
+                formatter.format(SignificantDate.next(SignificantDate.CHRISTMAS)));
+
 
         // todo: print the number of days to and date of the next occurrence of leap year
-        System.out.println("There are " + SignificantDate.daysTo(SignificantDate.LEAP_YEAR) + " days until the next occurrence of Leap Year on " + SignificantDate.next(SignificantDate.LEAP_YEAR).format(formatter));
+
+
+        System.out.printf("There are %s days until the next occurrence of Leap Year on %s\n",
+                SignificantDate.daysTo(SignificantDate.LEAP_YEAR),
+                formatter.format(SignificantDate.next(SignificantDate.LEAP_YEAR)));
 
         // todo: print the number of days to and date of any arbitrary MonthDate that is not defined as a constant in SignificantDate. EG: your birthday
 
-        System.out.println("There are " + SignificantDate.daysTo(MonthDay.of(Month.AUGUST, 23)) + " days until the next occurrence of my Birthday on " + SignificantDate.next(MonthDay.of(Month.AUGUST, 23)).format(formatter));
-    }
 
+        System.out.printf("There are %s days until the next occurrence of My Birthday on %s\n",
+                SignificantDate.daysTo(MonthDay.of(Month.AUGUST, 23)),
+                formatter.format(SignificantDate.next(MonthDay.of(Month.AUGUST, 23))));
+
+    }
 }
